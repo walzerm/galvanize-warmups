@@ -10,7 +10,7 @@
 */
 
 function parensChecker(input){
-	var valid = true;
+	var valid;
 	for (var i = 0; i < input.length; i++) {
 		if (input[i] === "(") {
 			valid = false;
@@ -18,16 +18,20 @@ function parensChecker(input){
 			valid = true;
 		}
 	}
-	return valid;
+	return valid || false;
 }
 
 
 function test(parensCheckFunction) {
 	var testCases = {
-		"()(((())))": true,
-		"())))(": false,
-		")(": false
-	};
+        "()(((())))": true,
+        "())))(": false,
+        ")(": false,
+        "([{}])": true,
+        "([([[{(){}[()]}]])])": true,
+        "}{": false,
+        "[][][]{}(){[]}({})": true
+    };
 	var allTestsPass = true;
 	for(parenString in testCases) {
 		var expected = testCases[parenString];
@@ -40,7 +44,7 @@ function test(parensCheckFunction) {
 			allTestsPass = false;
 		}
 	}
-	
+
 	if(allTestsPass) {
 		console.log("all tests pass");
 	}
