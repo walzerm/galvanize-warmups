@@ -11,14 +11,14 @@ function removeDupes(string) {
 //removeDupes('cAtCaT'); // 'cAtCaT'
 
 function insensitiveRemoveDupes(string) {
-    var newString = '';
-    for (var i = 0; i < string.length; i++) {
-        var letter = string[i].toLowerCase();
-        if (newString.indexOf(letter) < 0) {
-            newString += string[i];
-        }
+    var stringSet = new Set()
+    var testSet = new 
+    var testString = string.toLowerCase();
+    for (var i = 0; i < testString.length; i++) {
+        if (!)
+        stringSet.add(string[i]);
     }
-    console.log(newString);
+    console.log(Array.from(stringSet).join(''));
 }
 
 insensitiveRemoveDupes('AABB'); // 'AB'
