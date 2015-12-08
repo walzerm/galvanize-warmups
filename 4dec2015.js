@@ -13,12 +13,19 @@ function parensChecker(input){
 	var valid;
 	for (var i = 0; i < input.length; i++) {
 		if (input[i] === "(") {
-			valid = false;
+			valid++;
 		} else if (input[i] === ")") {
-			valid = true;
+			valid--;
+		}
+		if (valid < 0) {
+			return false;
 		}
 	}
-	return valid || false;
+	if (valid === 0) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 
@@ -27,6 +34,8 @@ function test(parensCheckFunction) {
         "()(((())))": true,
         "())))(": false,
         ")(": false,
+        "())": false,
+		"))": false,
         "([{}])": true,
         "([([[{(){}[()]}]])])": true,
         "}{": false,
