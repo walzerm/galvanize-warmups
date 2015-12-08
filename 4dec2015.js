@@ -11,16 +11,19 @@
 
 function parensChecker(input){
 	var valid;
+    if (input.indexOf(")") >= 0 || input.indexOf("(") >= 0) {
+        valid = 0;
+    }
 	for (var i = 0; i < input.length; i++) {
 		if (input[i] === "(") {
 			valid++;
-		} else if (input[i] === ")") {
+        } else if (input[i] === ")") {
 			valid--;
 		}
 		if (valid < 0) {
 			return false;
 		}
-	}
+   }
 	if (valid === 0) {
 		return true;
 	} else {
