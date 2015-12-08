@@ -12,11 +12,13 @@ function removeDupes(string) {
 
 function insensitiveRemoveDupes(string) {
     var stringSet = new Set()
-    var testSet = new 
-    var testString = string.toLowerCase();
+    var testSet = new Set();
+    var testString = string.toUpperCase();
     for (var i = 0; i < testString.length; i++) {
-        if (!)
-        stringSet.add(string[i]);
+        if (!testSet.has(testString[i])) {
+            testSet.add(testString[i]);
+            stringSet.add(string[i]);
+        }
     }
     console.log(Array.from(stringSet).join(''));
 }
