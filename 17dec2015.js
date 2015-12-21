@@ -2,18 +2,19 @@ function sumOfKeys(obj) {
     //A loop solution for summing the keys
     var keySum = 0;
     for (var key in obj) {
-        if (parseInt(key)) {
-            keySum+= parseInt(key);
+        if (parseFloat(key)) {
+            keySum+= parseFloat(key);
         }
 
     }
     //A non loop solution for achieving the same task
     var arr = Object.keys(obj);
+
     function isNumber(value) {
-        return parseInt(value);
+        return !isNaN(value);
     }
     var filtered = arr.filter(isNumber).reduce(function(a, b) {
-        return parseInt(a) + parseInt(b);
+        return parseFloat(a) + parseFloat(b);
     });
     console.log(filtered);
 }
@@ -21,7 +22,7 @@ function sumOfKeys(obj) {
 var obj = {
     2: 'hello',
     'NaN': 'bye',
-    3: 'boo',
+    3.4: 'boo',
     '6': 'why'
 };
 sumOfKeys(obj);
