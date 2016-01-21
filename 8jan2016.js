@@ -10,13 +10,24 @@ var prompt = require('prompt');
 // 	console.log(result);
 // 	console.log(result.guess);
 // });
+var compChoice = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+// Create a game, where users can guess until they guess correctly.
+function playGuessingGame() {
 
-function getRandomIntInclusive(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+    console.log("Pick a number between 1-100");
+    prompt.get(["guess"], function(err, result) {
+
+        var guess = parseInt(result.guess);
+        if (guess === compChoice) {
+            console.log('Congrats! You won!');
+        } else if (guess < compChoice) {
+            console.log('Your guess is too low.');
+            playGuessingGame();
+        } else {
+            console.log('Your guess is too high');
+            playGuessingGame();
+        }
+    })
 }
 
-
-//var globalGuess = undefined;
-//var randomNumber = 3; // fix this to be random
-
-// Create a game, where users can guess until they guess correctly.
+playGuessingGame();
