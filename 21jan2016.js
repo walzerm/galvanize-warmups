@@ -25,4 +25,39 @@ function removeSmallest(arr) {
 
 }
 
-console.log(removeSmallest([2,3,1,4,5]));
+// console.log(removeSmallest([2,3,1,4,5]));
+
+/*
+Given a number n, make a down arrow shaped pattern.
+
+For example, when n = 5, the output would be:
+123454321
+ 1234321
+  12321
+   121
+    1
+
+and for n = 11, it would be:
+123456789010987654321
+ 1234567890987654321
+  12345678987654321
+   123456787654321
+    1234567654321
+     12345654321
+      123454321
+       1234321
+        12321
+         121
+          1
+*/
+
+function arrow(n) {
+    var printedNumers = n * 2 - 1;
+
+    for (var i = 0; i < n; i++) {
+
+    }
+
+}
+
+console.log(arrow(5));

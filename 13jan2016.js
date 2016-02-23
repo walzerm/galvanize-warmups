@@ -11,4 +11,4 @@ function isSquare(number) {
 }
 
 
-console.log(isSquare(99));
+console.log(isSquare(19290446000000));
